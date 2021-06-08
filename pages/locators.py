@@ -10,5 +10,7 @@ class LoginPageLocators():
 
 
 class ProductPageLocators():
+    actual_book = (By.CSS_SELECTOR, '.product_main > h1')
+    actual_price = (By.CSS_SELECTOR, '.product_main .price_color')
     name_book = (By.CSS_SELECTOR, '#messages > div:nth-child(1) > div > strong')
     price_of_book = (By.CSS_SELECTOR, '#messages > div:nth-child(3) > div > p > strong')

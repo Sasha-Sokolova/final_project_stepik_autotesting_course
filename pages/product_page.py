@@ -11,11 +11,17 @@ class ProductPage(BasePage):
 
     def check_that_book_was_added(self):
         time.sleep(2)
+        book = self.browser.find_element(*ProductPageLocators.actual_book).text
         check = self.browser.find_element(*ProductPageLocators.name_book).text
-        assert check == "The shellcoder's handbook"
+        assert check == book
 
 
     def check_the_price(self):
+        sum = self.browser.find_element(*ProductPageLocators.actual_price).text
         price = self.browser.find_element(*ProductPageLocators.price_of_book).text
-        assert "9,99" in price
+        print(sum, price)
+        assert price == sum
+
+
+
 
