@@ -5,9 +5,11 @@ from .locators import ProductPageLocators
 class ProductPage(BasePage):
     def add_product_to_basket(self):
         self.browser.find_element_by_xpath("//button[@class='btn btn-lg btn-primary btn-add-to-basket']").click()
-        self.solve_quiz_and_get_code()
-        self.check_that_book_was_added()
-        self.check_the_price()
+        self.should_not_be_success_message()
+        self.should_be_disappeared()
+        #self.solve_quiz_and_get_code()
+        #self.check_that_book_was_added()
+        #self.check_the_price()
 
     def check_that_book_was_added(self):
         time.sleep(2)
@@ -21,6 +23,13 @@ class ProductPage(BasePage):
         price = self.browser.find_element(*ProductPageLocators.price_of_book).text
         print(sum, price)
         assert price == sum
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
+    def should_be_disappeared(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is disappeared"
 
 
 

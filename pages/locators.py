@@ -14,3 +14,4 @@ class ProductPageLocators():
     actual_price = (By.CSS_SELECTOR, '.product_main .price_color')
     name_book = (By.CSS_SELECTOR, '#messages > div:nth-child(1) > div > strong')
     price_of_book = (By.CSS_SELECTOR, '#messages > div:nth-child(3) > div > p > strong')
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, 'div.alertinner strong')
