@@ -5,11 +5,11 @@ from .locators import ProductPageLocators
 class ProductPage(BasePage):
     def add_product_to_basket(self):
         self.browser.find_element_by_xpath("//button[@class='btn btn-lg btn-primary btn-add-to-basket']").click()
-        self.should_not_be_success_message()
-        self.should_be_disappeared()
-        #self.solve_quiz_and_get_code()
-        #self.check_that_book_was_added()
-        #self.check_the_price()
+        self.solve_quiz_and_get_code()
+        self.check_that_book_was_added()
+        self.check_the_price()
+
+
 
     def check_that_book_was_added(self):
         time.sleep(2)
